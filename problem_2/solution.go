@@ -8,16 +8,11 @@ func Solution(input []int) (output []int) {
 
 	product, hasZero := numbers.Reduce()
 	for index, number := range numbers {
-		if hasZero {
-			if number == 0 {
-				output[index] = product
-			} else {
-				output[index] = 0
-			}
-		} else {
+		if !hasZero {
 			output[index] = product / number
+		} else if number == 0 {
+			output[index] = product
 		}
-
 	}
 	return output
 }
