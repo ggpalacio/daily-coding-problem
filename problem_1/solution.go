@@ -1,8 +1,5 @@
 package problem_1
 
-// Solution returns true if any two numbers of a given list of numbers added up to the given number k, false otherwise.
-// This solution iterates the list of numbers looking for the number on a map and if not found, puts a new value in the
-// map using as key the K - the number and an empty interface as value.
 func Solution(numbers []int, k int) bool {
 	var empty interface{}
 	set := make(map[int]interface{})
