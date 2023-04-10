@@ -2,6 +2,8 @@ package problem_2
 
 type Numbers []int
 
+// TODO solution without use division
+
 func Solution(input []int) (output []int) {
 	output = make([]int, len(input))
 	numbers := Numbers(input)
