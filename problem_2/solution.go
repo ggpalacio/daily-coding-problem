@@ -6,17 +6,30 @@ func Solution(input []int) (output []int) {
 	output = make([]int, len(input))
 	numbers := Numbers(input)
 
-	productAllNumbers := numbers.ProductAll()
+	product, hasZero := numbers.Reduce()
 	for index, number := range numbers {
-		output[index] = productAllNumbers / number
+		if hasZero {
+			if number == 0 {
+				output[index] = product
+			} else {
+				output[index] = 0
+			}
+		} else {
+			output[index] = product / number
+		}
+
 	}
 	return output
 }
 
-func (ref Numbers) ProductAll() int {
-	productAll := 1
+func (ref Numbers) Reduce() (product int, hasZero bool) {
+	product = 1
 	for _, number := range ref {
-		productAll *= number
+		if number == 0 {
+			hasZero = true
+		} else {
+			product *= number
+		}
 	}
-	return productAll
+	return
 }
